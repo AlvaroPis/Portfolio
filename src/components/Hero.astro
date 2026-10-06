@@ -1,10 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import photo from '../assets/alvaro-pistelli.webp';
 import { profile } from '../data/portfolio';
-
-const initials = profile.name
-  .split(' ')
-  .map((word) => word[0])
-  .join('');
 ---
 
 <section id="inicio" class="section flex flex-col-reverse items-start gap-10 md:flex-row md:items-center md:justify-between md:py-32">
@@ -25,13 +22,18 @@ const initials = profile.name
     </div>
   </div>
 
-  <!-- Avatar con iniciales. Para usar una foto: guardarla en src/assets y reemplazar este bloque por el componente Image de astro:assets -->
-  <div
-    role="img"
-    aria-label={`Avatar con las iniciales de ${profile.name}`}
-    class="flex size-28 shrink-0 items-center justify-center rounded-3xl bg-emerald-700 font-display text-4xl font-bold text-white shadow-lg shadow-emerald-900/20 sm:size-40 sm:text-6xl dark:bg-emerald-400 dark:text-zinc-950"
-    data-reveal
-  >
-    <span aria-hidden="true">{initials}</span>
+  <div class="shrink-0" data-reveal>
+    <Image
+      src={photo}
+      alt={`Foto de ${profile.name}`}
+      width={224}
+      height={224}
+      densities={[1, 2]}
+      fit="cover"
+      position="top"
+      loading="eager"
+      fetchpriority="high"
+      class="size-36 rounded-full object-cover ring-4 ring-emerald-700 ring-offset-4 ring-offset-zinc-50 sm:size-56 dark:ring-emerald-400 dark:ring-offset-zinc-950"
+    />
   </div>
 </section>
