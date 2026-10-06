@@ -1,0 +1,22 @@
+---
+import { profile } from '../data/portfolio';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-zinc-200 dark:border-zinc-800">
+  <div class="mx-auto flex max-w-5xl flex-col gap-3 px-5 py-8 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-8">
+    <p>© {year} {profile.name}. Hecho con Astro y Tailwind CSS.</p>
+    <ul class="flex gap-5">
+      <li><a href={profile.github} class="link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      {
+        profile.linkedin && (
+          <li>
+            <a href={profile.linkedin} class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </li>
+        )
+      }
+      <li><a href={`mailto:${profile.email}`} class="link">Email</a></li>
+    </ul>
+  </div>
+</footer>
