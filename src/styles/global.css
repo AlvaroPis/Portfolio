@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/space-grotesk';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-emerald-600);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .dark :focus-visible {
+    outline-color: var(--color-emerald-400);
+  }
+}
+
+@layer components {
+  .section {
+    @apply mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-24;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50;
+  }
+
+  .eyebrow {
+    @apply mb-2 font-mono text-sm text-emerald-700 dark:text-emerald-400;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-emerald-700 text-white hover:bg-emerald-800 dark:bg-emerald-400 dark:text-zinc-950 dark:hover:bg-emerald-300;
+  }
+
+  .btn-secondary {
+    @apply border border-zinc-300 text-zinc-900 hover:border-zinc-500 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:border-zinc-500 dark:hover:bg-zinc-800;
+  }
+
+  .tag {
+    @apply rounded-md border border-zinc-200 bg-zinc-100 px-2.5 py-1 font-mono text-xs text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300;
+  }
+
+  .link {
+    @apply font-medium text-emerald-700 underline decoration-emerald-700/40 underline-offset-4 hover:decoration-emerald-700 dark:text-emerald-400 dark:decoration-emerald-400/40 dark:hover:decoration-emerald-400;
+  }
+}
+
+/* Aparición al hacer scroll: solo si hay JS y el usuario no pidió reducir movimiento */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
