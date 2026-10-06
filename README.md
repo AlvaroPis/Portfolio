@@ -10,24 +10,6 @@ Sitio personal donde me presento como desarrollador: quién soy, qué tecnologí
 - Tipografía Space Grotesk servida desde el propio sitio (Fontsource).
 - Deploy como sitio estático en [Render](https://render.com/).
 
-## Cómo correrlo localmente
-
-Requiere Node.js 22.12 o superior.
-
-```bash
-npm install
-npm run dev
-```
-
-El sitio queda disponible en `http://localhost:4321`.
-
-Otros comandos:
-
-| Comando           | Qué hace                                         |
-| ----------------- | ------------------------------------------------ |
-| `npm run build`   | Genera el sitio de producción en `dist/`         |
-| `npm run preview` | Sirve localmente lo que generó `npm run build`   |
-
 ## Estructura
 
 ```
