@@ -67,7 +67,7 @@ export const projects: Project[] = [
     description:
       'Este sitio. Estático, con modo claro y oscuro, animaciones que respetan prefers-reduced-motion y un formulario de contacto validado en el cliente.',
     tech: ['Astro', 'Tailwind CSS', 'TypeScript', 'Render'],
-    repo: 'https://github.com/AlvaroPis/portfolio',
+    repo: 'https://github.com/AlvaroPis/Portfolio',
   },
 ];
 
